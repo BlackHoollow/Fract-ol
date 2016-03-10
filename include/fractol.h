@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/09 17:08:16 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/10 14:43:44 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,14 @@ typedef struct	s_param
 	void		*win;
 	void		*img;
 }				t_param;
+
+/*
+**	core.c
+*/
+
+void			ft_exit(char *str);
+int				my_key_func(int keycode, void *param);
+void			draw_pixel(t_param *param);
+int				main(int argc, char **argv);
 
 #endif
