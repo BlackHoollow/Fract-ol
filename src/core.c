@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 13:03:52 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:05:23 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		my_key_func(int keycode, void *param)
 	ft_putchar('\n');
 	if (keycode == 53)
 		ft_exit("quit");
-	andel_iter(param);
+	if (keycode == 37)
+		mandel_iter(param);
 	return (0);
 }
 void		draw_px(int x, int y, int color, t_param *param)
@@ -34,9 +35,7 @@ void		draw_px(int x, int y, int color, t_param *param)
 }
 void	draw_pixel(int x, int y, int color, t_param *param)
 {
-	param->str_img = mlx_get_data_addr(param->img, &param->bits, &param->size_line, &param->endian);
 	draw_px(x, y, color, param);
-	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 }
 
 int		main(int argc, char **argv)
