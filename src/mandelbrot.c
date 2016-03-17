@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 18:42:05 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 17:03:16 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:57:03 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,7 @@
 # define X2 0.6
 # define Y1 -1.2
 # define Y2 1.2
-# define ZOOM 100
-
-float		get_x_img(int zoom)
-{
-	float	img_x;
-
-	img_x = (X2 - X1) * zoom;
-	return (img_x);
-}
-
-float		get_y_img(int zoom)
-{
-	float	img_y;
-
-	img_y = (Y2 - Y1) * zoom;
-	return (img_y);
-}
+# define ZOOM 350
 
 void		get_data(t_param *param)
 {
@@ -45,14 +29,18 @@ void		mandel_iter(t_param *param)
 	float	x;
 	float	y;
 	int		i;
+	float	img_x;
+	float	img_y;
 	t_iter	iter;
 
+	img_x = (X2 - X1) * ZOOM;
+	img_y = (Y2 - Y1) * ZOOM;
 	get_data(param);
 	x = 0;
-	while (x < get_x_img(ZOOM))
+	while (x < LARGEUR)
 	{
 		y = 0;
-		while (y < get_y_img(ZOOM))
+		while (y < HAUTEUR)
 		{
 			iter.c_r = x / ZOOM + X1;
 			iter.c_i = y / ZOOM + Y1;

@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 17:02:53 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/17 17:51:49 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define HAUTEUR 1000
 # define LARGEUR 1000
-# define ITERMAX 50
+# define ITERMAX 25
 
 typedef struct	s_param
 {
