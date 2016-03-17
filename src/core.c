@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 19:30:22 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/17 19:49:51 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ void	wich_one(char *argv, t_param *param)
 	int		arg;
 
 	arg = ft_atoi(argv);
-	if (arg != 1)
+	if (arg != 1 && arg != 2)
 		ft_exit("Erreur");
 	if (arg == 1)
 	{
 		mandel_iter(param);
+	}
+	else if (arg == 2)
+	{
+		julia_iter(param);
 	}
 }
 

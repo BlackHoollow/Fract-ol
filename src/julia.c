@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/10 18:42:05 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 19:40:24 by nromptea         ###   ########.fr       */
+/*   Created: 2016/03/17 19:39:34 by nromptea          #+#    #+#             */
+/*   Updated: 2016/03/17 19:51:59 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-#define X1 -2.2
-#define X2 2.2
+#define X1 -1.5
+#define X2 1.5
 #define Y1 -1.5
 #define Y2 1.5
 #define ZOOM 350
 
-void		get_data(t_param *param)
-{
-	param->str_img = mlx_get_data_addr(param->img, &param->bits,
-			&param->size_line, &param->endian);
-}
-
-void		mandel_iter(t_param *param)
+void	julia_iter(t_param *param)
 {
 	float	x;
 	float	y;
@@ -34,7 +28,7 @@ void		mandel_iter(t_param *param)
 	t_iter	iter;
 
 	img_x = (X2 - X1) * ZOOM;
-	img_y = (Y2 - Y1) * ZOOM;
+	img_y = (X2 - X1) * ZOOM;
 	get_data(param);
 	x = 0;
 	while (x < LARGEUR)
@@ -42,10 +36,10 @@ void		mandel_iter(t_param *param)
 		y = 0;
 		while (y < HAUTEUR)
 		{
-			iter.c_r = x / ZOOM + X1;
-			iter.c_i = y / ZOOM + Y1;
-			iter.z_r = 0;
-			iter.z_i = 0;
+			iter.c_r = 0.285;
+			iter.c_i = 0.01;
+			iter.z_r = x / ZOOM + X1;
+			iter.z_i = y / ZOOM + Y1;
 			i = 0;
 			while ((iter.z_r * iter.z_r + iter.z_i * iter.z_i) < 4 && i < ITERMAX)
 			{
@@ -57,10 +51,10 @@ void		mandel_iter(t_param *param)
 			if (i == ITERMAX)
 				draw_px(x, y, 0xFFFFFF, param);
 			else
-				draw_px(x, y, i * 255 / ITERMAX, param);
-			y = y + 1;
+				draw_px(x,y, i * 255 / ITERMAX, param);
+			y++;
 		}
-		x = x + 1;
+		x++;
 	}
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 }

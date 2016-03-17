@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 19:29:30 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/17 19:53:49 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # define HAUTEUR 1000
 # define LARGEUR 1000
-# define ITERMAX 25
+# define ITERMAX 50
 
 typedef struct	s_param
 {
@@ -61,5 +61,11 @@ int				main(int argc, char **argv);
 
 void			get_data(t_param *param);
 void			mandel_iter(t_param *param);
+
+/*
+**	julia.c
+*/
+
+void			julia_iter(t_param *param);
 
 #endif
