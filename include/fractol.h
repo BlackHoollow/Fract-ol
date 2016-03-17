@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 17:51:49 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/17 19:29:30 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,14 @@ typedef struct	s_iter
 void			ft_exit(char *str);
 int				my_key_func(int keycode, void *param);
 void			draw_px(int x, int y, int color, t_param *param);
-void			draw_pixel(int x, int y, int color, t_param *param);
+void			wich_one(char *argv, t_param *param);
 int				main(int argc, char **argv);
 
 /*
 **	mandelbrot.c
 */
 
-float			get_x_img(int zoom);
-float			get_y_img(int zoom);
+void			get_data(t_param *param);
 void			mandel_iter(t_param *param);
 
 #endif
