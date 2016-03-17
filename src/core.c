@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/10 17:28:10 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/17 13:03:52 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,19 @@ int		my_key_func(int keycode, void *param)
 	ft_putstr("keycode = ");
 	ft_putnbr(keycode);
 	ft_putchar('\n');
-	draw_pixel(param);
 	if (keycode == 53)
 		ft_exit("quit");
+	andel_iter(param);
 	return (0);
 }
-void		draw_px(char *s, int x, int y, const int color, int bpp, int size_line)
+void		draw_px(int x, int y, int color, t_param *param)
 {
-	*(int *)(unsigned long)(s + (size_line * y) +
-			(x * bpp / 8)) = color;
+	*(int *)(unsigned long)(param->str_img + (param->size_line * y) + (x * param->bits / 8)) = color;
 }
-void	draw_pixel(t_param *param)
+void	draw_pixel(int x, int y, int color, t_param *param)
 {
-	char	*str;
-	int		bits;
-	int		size_line;
-	int		endian;
-
-	str = mlx_get_data_addr(param->img, &bits, &size_line, &endian);
-	draw_px(str, 999, 200, 0xFF0000, bits, size_line);
+	param->str_img = mlx_get_data_addr(param->img, &param->bits, &param->size_line, &param->endian);
+	draw_px(x, y, color, param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 }
 
