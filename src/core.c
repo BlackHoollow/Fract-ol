@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 19:49:51 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/18 14:14:17 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@ int		my_key_func(int keycode, void *param)
 	param = param + 0;
 	if (keycode == 53)
 		ft_exit("quit");
+	return (0);
+}
+
+int		my_mouse_func(int button, void *param)
+{
+	param = param + 0;
+	ft_putnbr(button);
+	ft_putchar('\n');
 	return (0);
 }
 
@@ -59,6 +67,7 @@ int		main(int argc, char **argv)
 	param.mlx = mlx_init();
 	param.win = mlx_new_window(param.mlx, LARGEUR, HAUTEUR, "fractol");
 	param.img = mlx_new_image(param.mlx, LARGEUR, HAUTEUR);
+	mlx_mouse_hook(param.win, my_mouse_func, &param);
 	mlx_key_hook(param.win, my_key_func, &param);
 	wich_one(argv[1], &param);
 	mlx_loop(param.mlx);

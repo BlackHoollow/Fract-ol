@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 19:53:49 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/18 14:13:21 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ typedef struct	s_iter
 
 void			ft_exit(char *str);
 int				my_key_func(int keycode, void *param);
+int				my_mouse_func(int button, void *param);
 void			draw_px(int x, int y, int color, t_param *param);
 void			wich_one(char *argv, t_param *param);
 int				main(int argc, char **argv);
