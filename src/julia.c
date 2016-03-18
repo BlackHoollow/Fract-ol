@@ -6,19 +6,13 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 19:39:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 19:51:59 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/18 15:01:50 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-#define X1 -1.5
-#define X2 1.5
-#define Y1 -1.5
-#define Y2 1.5
-#define ZOOM 350
-
-void	julia_iter(t_param *param)
+void	julia_iter(t_param *param, t_zoom *zoom)
 {
 	float	x;
 	float	y;
@@ -27,8 +21,8 @@ void	julia_iter(t_param *param)
 	float	img_y;
 	t_iter	iter;
 
-	img_x = (X2 - X1) * ZOOM;
-	img_y = (X2 - X1) * ZOOM;
+	img_x = (zoom->x2 - zoom->x1) * zoom->zoom;
+	img_y = (zoom->x2 - zoom->x1) * zoom->zoom;
 	get_data(param);
 	x = 0;
 	while (x < LARGEUR)
@@ -38,8 +32,8 @@ void	julia_iter(t_param *param)
 		{
 			iter.c_r = 0.285;
 			iter.c_i = 0.01;
-			iter.z_r = x / ZOOM + X1;
-			iter.z_i = y / ZOOM + Y1;
+			iter.z_r = x / zoom->zoom + zoom->x1;
+			iter.z_i = y / zoom->zoom + zoom->y1;
 			i = 0;
 			while ((iter.z_r * iter.z_r + iter.z_i * iter.z_i) < 4 && i < ITERMAX)
 			{

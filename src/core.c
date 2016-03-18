@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 14:14:17 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/18 15:40:22 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,25 @@ int		my_key_func(int keycode, void *param)
 	param = param + 0;
 	if (keycode == 53)
 		ft_exit("quit");
+	if (keycode == 123)
+		draw_left(param);
+	if (keycode == 124)
+		draw_right(param);
+	if (keycode == 126)
+		draw_up(param);
+	if (keycode == 125)
+		draw_down(param);
 	return (0);
 }
 
-int		my_mouse_func(int button, void *param)
+int		my_mouse_func(int button, int x, int y, void *param)
 {
 	param = param + 0;
 	ft_putnbr(button);
+	ft_putchar('\t');
+	ft_putnbr(x);
+	ft_putchar('\t');
+	ft_putnbr(y);
 	ft_putchar('\n');
 	return (0);
 }
@@ -40,20 +52,34 @@ void	draw_px(int x, int y, int color, t_param *param)
 			(x * param->bits / 8)) = color;
 }
 
+void	init_zoom(t_zoom *zoom)
+{
+	zoom->x1 = -2.2;
+	zoom->x2 = 2.2;
+	zoom->y1 = -1.5;
+	zoom->y2 = 1.5;
+	zoom->zoom = 350;
+}
+
 void	wich_one(char *argv, t_param *param)
 {
 	int		arg;
+	t_zoom	zoom;
 
 	arg = ft_atoi(argv);
+	init_zoom(&zoom);
+	param->zoom = zoom;
 	if (arg != 1 && arg != 2)
 		ft_exit("Erreur");
 	if (arg == 1)
 	{
-		mandel_iter(param);
+		param->wich = 1;
+		mandel_iter(param, &param->zoom);
 	}
 	else if (arg == 2)
 	{
-		julia_iter(param);
+		param->wich = 2;
+		julia_iter(param, &zoom);
 	}
 }
 

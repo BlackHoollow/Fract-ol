@@ -6,17 +6,11 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 18:42:05 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/17 19:40:24 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/18 15:04:04 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-#define X1 -2.2
-#define X2 2.2
-#define Y1 -1.5
-#define Y2 1.5
-#define ZOOM 350
 
 void		get_data(t_param *param)
 {
@@ -24,7 +18,7 @@ void		get_data(t_param *param)
 			&param->size_line, &param->endian);
 }
 
-void		mandel_iter(t_param *param)
+void		mandel_iter(t_param *param, t_zoom *zoom)
 {
 	float	x;
 	float	y;
@@ -33,8 +27,8 @@ void		mandel_iter(t_param *param)
 	float	img_y;
 	t_iter	iter;
 
-	img_x = (X2 - X1) * ZOOM;
-	img_y = (Y2 - Y1) * ZOOM;
+	img_x = (zoom->x2 - zoom->x1) * zoom->zoom;
+	img_y = (zoom->y2 - zoom->y1) * zoom->zoom;
 	get_data(param);
 	x = 0;
 	while (x < LARGEUR)
@@ -42,8 +36,8 @@ void		mandel_iter(t_param *param)
 		y = 0;
 		while (y < HAUTEUR)
 		{
-			iter.c_r = x / ZOOM + X1;
-			iter.c_i = y / ZOOM + Y1;
+			iter.c_r = x / zoom->zoom + zoom->x1;
+			iter.c_i = y / zoom->zoom + zoom->y1;
 			iter.z_r = 0;
 			iter.z_i = 0;
 			i = 0;
