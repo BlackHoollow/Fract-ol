@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 15:30:51 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/18 17:43:42 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 
 # define HAUTEUR 1000
 # define LARGEUR 1000
-# define ITERMAX 50
 
 typedef struct	s_zoom
 {
@@ -32,6 +31,7 @@ typedef struct	s_zoom
 	float	y1;
 	float	y2;
 	int		zoom;
+	int			iter_max;
 }				t_zoom;
 
 typedef struct	s_param
@@ -88,5 +88,19 @@ void	draw_left(t_param *param);
 void	draw_right(t_param *param);
 void	draw_up(t_param *param);
 void	draw_down(t_param *param);
+
+/*
+**	iter.c
+*/
+
+void	iter_plus(t_param *param);
+void	iter_moins(t_param *param);
+
+/*
+**	zoom.c
+*/
+
+void	zoom_in(t_param *param, int x, int y);
+void	zoom_out(t_param *param, int x, int y);
 
 #endif

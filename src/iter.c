@@ -1,43 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zoom.c                                             :+:      :+:    :+:   */
+/*   iter.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/18 14:36:08 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 18:51:59 by nromptea         ###   ########.fr       */
+/*   Created: 2016/03/18 16:38:35 by nromptea          #+#    #+#             */
+/*   Updated: 2016/03/18 16:44:18 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-# define H 5
-
-void	zoom_in(t_param *param, int x, int y)
+void	iter_plus(t_param *param)
 {
-/*	param->zoom.x1 = x - H;	
-	param->zoom.x2 = x + H;
-	param->zoom.y1 = y - H;
-	param->zoom.y2 = y + H;*/
-	x = x + 0;
-	y = y + 0;
-	param->zoom.zoom = param->zoom.zoom + 50;
+	param->zoom.iter_max = param->zoom.iter_max + 5;
 	if (param->wich == 1)
 		mandel_iter(param, &param->zoom);
 	if (param->wich == 2)
 		julia_iter(param, &param->zoom);
 }
 
-void	zoom_out(t_param *param, int x, int y)
+void	iter_moins(t_param *param)
 {
-/*	param->zoom.x1 = x + H;
-	param->zoom.x2 = x - H;
-	param->zoom.y1 = y + H;
-	param->zoom.y2 = y - H;*/
-	x = x + 0;
-	y = y + 0;
-	param->zoom.zoom = param->zoom.zoom - 50;
+	param->zoom.iter_max = param->zoom.iter_max - 5;
 	if (param->wich == 1)
 		mandel_iter(param, &param->zoom);
 	if (param->wich == 2)

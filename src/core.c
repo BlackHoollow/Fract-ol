@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 15:40:22 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/18 17:41:36 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,20 @@ int		my_key_func(int keycode, void *param)
 		draw_up(param);
 	if (keycode == 125)
 		draw_down(param);
+	if (keycode == 69)
+		iter_plus(param);
+	if (keycode == 78)
+		iter_moins(param);
 	return (0);
 }
 
 int		my_mouse_func(int button, int x, int y, void *param)
 {
 	param = param + 0;
-	ft_putnbr(button);
-	ft_putchar('\t');
-	ft_putnbr(x);
-	ft_putchar('\t');
-	ft_putnbr(y);
-	ft_putchar('\n');
+	if (button == 4)
+		zoom_in(param, x, y);
+	if (button == 5)
+		zoom_out(param, x, y);
 	return (0);
 }
 
@@ -59,6 +61,7 @@ void	init_zoom(t_zoom *zoom)
 	zoom->y1 = -1.5;
 	zoom->y2 = 1.5;
 	zoom->zoom = 350;
+	zoom->iter_max = 50;
 }
 
 void	wich_one(char *argv, t_param *param)
