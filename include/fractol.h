@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 17:43:42 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 16:49:54 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void			ft_exit(char *str);
 int				my_key_func(int keycode, void *param);
 int				my_mouse_func(int button,int x, int y, void *param);
 void			draw_px(int x, int y, int color, t_param *param);
+void			init_zoom(t_zoom *zoom);
 void			wich_one(char *argv, t_param *param);
 int				main(int argc, char **argv);
 

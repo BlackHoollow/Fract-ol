@@ -6,13 +6,11 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:36:08 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/21 16:20:45 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 17:14:07 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-#include <stdio.h>
 
 void	zoom_in(t_param *param, int x, int y)
 {
