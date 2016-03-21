@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 18:42:05 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 16:40:29 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 16:19:47 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,10 @@ void		mandel_iter(t_param *param, t_zoom *zoom)
 		}
 		x = x + 1;
 	}
+	draw_px(600, 500, 0xFF3030, param);
+	draw_px(400, 500, 0xFF3030, param);
+	draw_px(500, 400, 0xFF3030, param);
+	draw_px(500, 500, 0xFF3030, param);
+	draw_px(500, 600, 0xFF3030, param);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
 }

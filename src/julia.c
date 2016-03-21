@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 19:39:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 16:40:32 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 14:55:25 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	julia_iter(t_param *param, t_zoom *zoom)
 		y = 0;
 		while (y < HAUTEUR)
 		{
-			iter.c_r = 0.285;
-			iter.c_i = 0.01;
+			iter.c_r = -0.8;
+			iter.c_i = 0.156;
 			iter.z_r = x / zoom->zoom + zoom->x1;
 			iter.z_i = y / zoom->zoom + zoom->y1;
 			i = 0;

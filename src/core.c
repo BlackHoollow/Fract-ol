@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/18 17:41:36 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 14:14:12 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		my_key_func(int keycode, void *param)
 int		my_mouse_func(int button, int x, int y, void *param)
 {
 	param = param + 0;
-	if (button == 4)
+	if (button == 1)
 		zoom_in(param, x, y);
 	if (button == 5)
 		zoom_out(param, x, y);
