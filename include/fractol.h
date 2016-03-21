@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/21 16:49:54 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 21:56:36 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@
 typedef struct	s_zoom
 {
 	float	x1;
-	float	x2;
 	float	y1;
-	float	y2;
 	int		zoom;
 	int			iter_max;
 }				t_zoom;
@@ -45,6 +43,7 @@ typedef struct	s_param
 	int			endian;
 	t_zoom		zoom;
 	int			wich;
+	int			color;
 }				t_param;
 
 typedef struct	s_iter
@@ -72,6 +71,8 @@ int				main(int argc, char **argv);
 **	mandelbrot.c
 */
 
+int				get_color(int color);
+void			change_color(t_param *param);
 void			get_data(t_param *param);
 void			mandel_iter(t_param *param, t_zoom *zoom);
 

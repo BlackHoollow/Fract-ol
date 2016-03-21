@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/21 16:49:46 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 21:55:06 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int		my_key_func(int keycode, void *param)
 		iter_plus(param);
 	if (keycode == 78)
 		iter_moins(param);
+	if (keycode == 82)
+		change_color(param);
 	return (0);
 }
 
@@ -57,10 +59,8 @@ void	draw_px(int x, int y, int color, t_param *param)
 void	init_zoom(t_zoom *zoom)
 {
 	zoom->x1 = -2.2;
-	zoom->x2 = 2.2;
-	zoom->y1 = -1.5;
-	zoom->y2 = 1.5;
-	zoom->zoom = 350;
+	zoom->y1 = -1.65;
+	zoom->zoom = 300;
 	zoom->iter_max = 50;
 }
 
@@ -71,6 +71,7 @@ void	wich_one(char *argv, t_param *param)
 
 	arg = ft_atoi(argv);
 	init_zoom(&zoom);
+	param->color = 0;
 	param->zoom = zoom;
 	if (arg != 1 && arg != 2)
 		ft_exit("Erreur");

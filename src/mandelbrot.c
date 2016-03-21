@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/10 18:42:05 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/21 16:42:50 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 21:59:22 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,33 @@ void		get_data(t_param *param)
 			&param->size_line, &param->endian);
 }
 
+int			get_color(int color)
+{
+	if (color == 0)
+		color = 8;
+	else if (color == 8)
+		color = 16;
+	else if (color == 16)
+		color = 0;
+	return (color);
+}
+
+void		change_color(t_param *param)
+{
+	param->color = get_color(param->color);
+	if (param->wich == 1)
+		mandel_iter(param, &param->zoom);
+	if (param->wich == 2)
+		julia_iter(param, &param->zoom);
+}
+
 void		mandel_iter(t_param *param, t_zoom *zoom)
 {
 	float	x;
 	float	y;
 	int		i;
-	float	img_x;
-	float	img_y;
 	t_iter	iter;
 
-	img_x = (zoom->x2 - zoom->x1) * zoom->zoom;
-	img_y = (zoom->y2 - zoom->y1) * zoom->zoom;
 	get_data(param);
 	x = 0;
 	while (x < LARGEUR)
@@ -51,7 +67,7 @@ void		mandel_iter(t_param *param, t_zoom *zoom)
 			if (i == zoom->iter_max)
 				draw_px(x, y, 0xFFFFFF, param);
 			else
-				draw_px(x, y, i * 255 / zoom->iter_max, param);
+				draw_px(x, y, (i * 255 / zoom->iter_max) << param->color, param);
 			y = y + 1;
 		}
 		x = x + 1;

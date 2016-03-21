@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 19:39:34 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/21 14:55:25 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/21 21:59:03 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,8 @@ void	julia_iter(t_param *param, t_zoom *zoom)
 	float	x;
 	float	y;
 	int		i;
-	float	img_x;
-	float	img_y;
 	t_iter	iter;
 
-	img_x = (zoom->x2 - zoom->x1) * zoom->zoom;
-	img_y = (zoom->x2 - zoom->x1) * zoom->zoom;
 	get_data(param);
 	x = 0;
 	while (x < LARGEUR)
@@ -45,7 +41,7 @@ void	julia_iter(t_param *param, t_zoom *zoom)
 			if (i == zoom->iter_max)
 				draw_px(x, y, 0xFFFFFF, param);
 			else
-				draw_px(x,y, i * 255 / zoom->iter_max, param);
+				draw_px(x,y, (i * 255 / zoom->iter_max) << param->color, param);
 			y++;
 		}
 		x++;
