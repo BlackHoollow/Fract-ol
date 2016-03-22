@@ -6,26 +6,34 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:36:08 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/21 20:20:08 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 12:28:56 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <stdio.h>
 
 void	zoom_in(t_param *param, int x, int y)
 {
 	float	xp;
 	float	yp;
+	float	amp;
+	float	h;
+	float	z;
 
 	if (x < 0 || x > LARGEUR || y < 0 || y > HAUTEUR)
 		return ;
-	xp = (x * (fabs(param->zoom.x1) * 2) / LARGEUR);
-	yp = (y * (fabs(param->zoom.y1) * 2) / HAUTEUR);
+	h = HAUTEUR;
+	z = param->zoom.zoom;
+	amp = h / z;
+	xp = (x * (amp / LARGEUR));
+	yp = (y * (amp / HAUTEUR));
 	xp = xp - fabs(param->zoom.x1);
 	yp = yp - fabs(param->zoom.y1);
-	param->zoom.x1 = (param->zoom.x1) + xp;
-	param->zoom.y1 = (param->zoom.y1) + yp;
-//	param->zoom.zoom = param->zoom.zoom + 50;
+	amp = amp / 2;
+	param->zoom.x1 = xp - amp;
+	param->zoom.y1 = yp - amp;
+	param->zoom.zoom = param->zoom.zoom + 50;
 	if (param->wich == 1)
 		mandel_iter(param, &param->zoom);
 	if (param->wich == 2)
