@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 18:55:39 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 19:05:53 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,12 +88,14 @@ void			init_zoom(t_param *param);
 int				get_color(int color);
 void			change_color(t_param *param);
 void			get_data(t_param *param);
+void			mandel2(t_iter iter, t_zoom *zoom, t_param *param, t_pnt *pnt);
 void			mandel_iter(t_param *param, t_zoom *zoom);
 
 /*
 **	julia.c
 */
 
+void			julia2(t_iter iter, t_zoom *zoom, t_param *param, t_pnt *pnt);
 void			julia_iter(t_param *param, t_zoom *zoom);
 
 /*
@@ -123,6 +125,7 @@ void			zoom_out(t_param *param, int x, int y);
 **	burning.c
 */
 
+void			burning2(t_iter iter, t_zoom *zoom, t_param *param, t_pnt *pnt);
 void			burning_iter(t_param *param, t_zoom *zoom);
 
 #endif
