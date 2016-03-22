@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 17:46:51 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 18:56:00 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,9 @@ int		func_mouse(int x, int y, t_param *param)
 void	wich_one(char *argv, t_param *param)
 {
 	int		arg;
-	t_zoom	zoom;
 
 	arg = ft_atoi(argv);
-	init_zoom(&zoom);
-	param->color = 0;
-	param->zoom = zoom;
-	param->mouse = 0;
+	init_zoom(param);
 	if (arg != 1 && arg != 2 && arg != 3)
 		ft_exit("Erreur");
 	if (arg == 1)
@@ -83,12 +79,12 @@ void	wich_one(char *argv, t_param *param)
 		param->wich = 2;
 		param->itera.c_r = -0.8;
 		param->itera.c_i = 0.156;
-		julia_iter(param, &zoom);
+		julia_iter(param, &param->zoom);
 	}
 	else if (arg == 3)
 	{
 		param->wich = 3;
-		burning_iter(param, &zoom);
+		burning_iter(param, &param->zoom);
 	}
 }
 

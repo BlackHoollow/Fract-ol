@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:36:08 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 18:14:07 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 19:03:14 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,10 @@ void	zoom_in(t_param *param, int x, int y)
 	h = HAUTEUR;
 	z = param->zoom.zoom;
 	amp = h / z;
-	xp = (x * (amp / LARGEUR));
-	yp = (y * (amp / HAUTEUR));
-	xp = xp - fabs(param->zoom.x1);
-	yp = yp - fabs(param->zoom.y1);
-	amp = amp / 2;
-	param->zoom.x1 = xp - amp;
-	param->zoom.y1 = yp - amp;
+	xp = (x * (amp / LARGEUR)) - fabs(param->zoom.x1);
+	yp = (y * (amp / HAUTEUR)) - fabs(param->zoom.y1);
+	param->zoom.x1 = xp - (amp / 2.);
+	param->zoom.y1 = yp - (amp / 2.);
 	if (param->zoom.zoom <= 10000)
 		param->zoom.zoom = param->zoom.zoom + 150;
 	else
@@ -55,18 +52,13 @@ void	zoom_out(t_param *param, int x, int y)
 
 	if (x < 0 || x > LARGEUR || y < 0 || y > HAUTEUR)
 		return ;
-	if (param->zoom.zoom <= 150)
-		return ;
 	h = HAUTEUR;
 	z = param->zoom.zoom;
 	amp = h / z;
-	xp = (x * (amp / LARGEUR));
-	yp = (y * (amp / HAUTEUR));
-	xp = xp - fabs(param->zoom.x1);
-	yp = yp - fabs(param->zoom.y1);
-	amp = amp / 2;
-	param->zoom.x1 = xp - amp;
-	param->zoom.y1 = yp - amp;
+	xp = (x * (amp / LARGEUR)) - fabs(param->zoom.x1);
+	yp = (y * (amp / HAUTEUR)) - fabs(param->zoom.y1);
+	param->zoom.x1 = xp - (amp / 2.);
+	param->zoom.y1 = yp - (amp / 2.);
 	if (param->zoom.zoom <= 10000)
 		param->zoom.zoom = param->zoom.zoom - 150;
 	else

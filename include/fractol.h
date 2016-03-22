@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 17:46:04 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 18:55:39 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@
 
 # define HAUTEUR 1000
 # define LARGEUR 1000
+
+typedef struct	s_pnt
+{
+	double	x;
+	double	y;
+}				t_pnt;
 
 typedef struct	s_iter
 {
@@ -73,7 +79,7 @@ int				main(int argc, char **argv);
 
 void			ft_exit(char *str);
 void			draw_px(int x, int y, int color, t_param *param);
-void			init_zoom(t_zoom *zoom);
+void			init_zoom(t_param *param);
 
 /*
 **	mandelbrot.c

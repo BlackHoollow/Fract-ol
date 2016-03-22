@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:26:51 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 17:31:06 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 18:56:09 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,15 @@ void	draw_px(int x, int y, int color, t_param *param)
 			(x * param->bits / 8)) = color;
 }
 
-void	init_zoom(t_zoom *zoom)
+void	init_zoom(t_param *param)
 {
-	zoom->x1 = -2.2;
-	zoom->y1 = -1.65;
-	zoom->zoom = 300;
-	zoom->iter_max = 50;
+	t_zoom	zoom;
+
+	zoom.x1 = -2.2;
+	zoom.y1 = -1.65;
+	zoom.zoom = 300;
+	zoom.iter_max = 50;
+	param->color = 0;
+	param->zoom = zoom;
+	param->mouse = 0;
 }
