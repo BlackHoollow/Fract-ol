@@ -6,15 +6,15 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:26:51 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 18:56:09 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 19:11:26 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	ft_exit(char *str)
+void	ft_exit(void)
 {
-	ft_putendl(str);
+	ft_putendl("1 pour mandelbrot\n2 pour julia\n3 pour burningship");
 	exit(1);
 }
 

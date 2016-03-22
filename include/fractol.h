@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 19:05:53 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 19:09:35 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int				main(int argc, char **argv);
 **	utility.c
 */
 
-void			ft_exit(char *str);
+void			ft_exit(void);
 void			draw_px(int x, int y, int color, t_param *param);
 void			init_zoom(t_param *param);
 

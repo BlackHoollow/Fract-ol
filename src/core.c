@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 18:56:00 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 19:10:05 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		my_key_func(int keycode, void *param)
 {
 	param = param + 0;
 	if (keycode == 53)
-		ft_exit("quit");
+		exit(1);
 	if (keycode == 123)
 		draw_left(param);
 	if (keycode == 124)
@@ -68,7 +68,7 @@ void	wich_one(char *argv, t_param *param)
 	arg = ft_atoi(argv);
 	init_zoom(param);
 	if (arg != 1 && arg != 2 && arg != 3)
-		ft_exit("Erreur");
+		ft_exit();
 	if (arg == 1)
 	{
 		param->wich = 1;
@@ -94,7 +94,7 @@ int		main(int argc, char **argv)
 
 	argv = argv + 0;
 	if (argc != 2)
-		ft_exit("Erreur");
+		ft_exit();
 	param.mlx = mlx_init();
 	param.win = mlx_new_window(param.mlx, LARGEUR, HAUTEUR, "fractol");
 	param.img = mlx_new_image(param.mlx, LARGEUR, HAUTEUR);
