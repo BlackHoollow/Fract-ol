@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 16:20:11 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 17:30:15 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct	s_iter
 
 typedef struct	s_zoom
 {
-	double	x1;
-	double	y1;
-	int		zoom;
+	double		x1;
+	double		y1;
+	int			zoom;
 	int			iter_max;
 }				t_zoom;
 
@@ -61,13 +61,19 @@ typedef struct	s_param
 **	core.c
 */
 
-void			ft_exit(char *str);
 int				my_key_func(int keycode, void *param);
 int				my_mouse_func(int button, int x, int y, t_param *param);
-void			draw_px(int x, int y, int color, t_param *param);
-void			init_zoom(t_zoom *zoom);
+int				func_mouse(int x, int y, t_param *param);
 void			wich_one(char *argv, t_param *param);
 int				main(int argc, char **argv);
+
+/*
+**	utility.c
+*/
+
+void			ft_exit(char *str);
+void			draw_px(int x, int y, int color, t_param *param);
+void			init_zoom(t_zoom *zoom);
 
 /*
 **	mandelbrot.c
@@ -88,23 +94,23 @@ void			julia_iter(t_param *param, t_zoom *zoom);
 **	deplacements.c
 */
 
-void	draw_left(t_param *param);
-void	draw_right(t_param *param);
-void	draw_up(t_param *param);
-void	draw_down(t_param *param);
+void			draw_left(t_param *param);
+void			draw_right(t_param *param);
+void			draw_up(t_param *param);
+void			draw_down(t_param *param);
 
 /*
 **	iter.c
 */
 
-void	iter_plus(t_param *param);
-void	iter_moins(t_param *param);
+void			iter_plus(t_param *param);
+void			iter_moins(t_param *param);
 
 /*
 **	zoom.c
 */
 
-void	zoom_in(t_param *param, int x, int y);
-void	zoom_out(t_param *param, int x, int y);
+void			zoom_in(t_param *param, int x, int y);
+void			zoom_out(t_param *param, int x, int y);
 
 #endif
