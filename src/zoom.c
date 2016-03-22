@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 14:36:08 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 14:41:17 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 16:30:25 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 void	zoom_in(t_param *param, int x, int y)
 {
-	float	xp;
-	float	yp;
-	float	amp;
-	float	h;
-	float	z;
+	double	xp;
+	double	yp;
+	double	amp;
+	double	h;
+	double	z;
 
 	if (x < 0 || x > LARGEUR || y < 0 || y > HAUTEUR)
 		return ;
@@ -45,15 +45,15 @@ void	zoom_in(t_param *param, int x, int y)
 
 void	zoom_out(t_param *param, int x, int y)
 {
-	float	xp;
-	float	yp;
-	float	amp;
-	float	h;
-	float	z;
+	double	xp;
+	double	yp;
+	double	amp;
+	double	h;
+	double	z;
 
 	if (x < 0 || x > LARGEUR || y < 0 || y > HAUTEUR)
 		return ;
-	if (param->zoom.zoom == 100)
+	if (param->zoom.zoom <= 150)
 		return ;
 	h = HAUTEUR;
 	z = param->zoom.zoom;

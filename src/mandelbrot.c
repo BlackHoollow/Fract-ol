@@ -40,8 +40,8 @@ void		change_color(t_param *param)
 
 void		mandel_iter(t_param *param, t_zoom *zoom)
 {
-	float	x;
-	float	y;
+	double	x;
+	double	y;
 	int		i;
 	t_iter	iter;
 

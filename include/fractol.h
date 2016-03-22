@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/21 21:56:36 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 16:20:11 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,19 @@
 # define HAUTEUR 1000
 # define LARGEUR 1000
 
+typedef struct	s_iter
+{
+	double		c_r;
+	double		c_i;
+	double		z_r;
+	double		z_i;
+	double		tmp;
+}				t_iter;
+
 typedef struct	s_zoom
 {
-	float	x1;
-	float	y1;
+	double	x1;
+	double	y1;
 	int		zoom;
 	int			iter_max;
 }				t_zoom;
@@ -44,16 +53,9 @@ typedef struct	s_param
 	t_zoom		zoom;
 	int			wich;
 	int			color;
+	int			mouse;
+	t_iter		itera;
 }				t_param;
-
-typedef struct	s_iter
-{
-	float		c_r;
-	float		c_i;
-	float		z_r;
-	float		z_i;
-	float		tmp;
-}				t_iter;
 
 /*
 **	core.c
@@ -61,7 +63,7 @@ typedef struct	s_iter
 
 void			ft_exit(char *str);
 int				my_key_func(int keycode, void *param);
-int				my_mouse_func(int button,int x, int y, void *param);
+int				my_mouse_func(int button, int x, int y, t_param *param);
 void			draw_px(int x, int y, int color, t_param *param);
 void			init_zoom(t_zoom *zoom);
 void			wich_one(char *argv, t_param *param);
