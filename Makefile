@@ -6,11 +6,12 @@
 #    By: nromptea <mgras@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by nromptea          #+#    #+#              #
-#    Updated: 2016/03/22 17:30:43 by nromptea         ###   ########.fr        #
+#    Updated: 2016/03/22 17:46:41 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC_NAME = core.c mandelbrot.c julia.c deplacement.c iter.c zoom.c utility.c
+SRC_NAME = core.c mandelbrot.c julia.c deplacement.c iter.c zoom.c utility.c\
+		   burning.c
 OBJ_NAME = $(SRC_NAME:.c=.o)
 LIB_NAME = libft
 

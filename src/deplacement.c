@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 15:20:11 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 17:23:47 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 18:10:29 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	draw_left(t_param *param)
 	param->zoom.x1 = param->zoom.x1 / 1.1;
 	if (param->wich == 1)
 		mandel_iter(param, &param->zoom);
-	if (param->wich == 2)
+	else if (param->wich == 2)
 		julia_iter(param, &param->zoom);
+	else if (param->wich == 3)
+		burning_iter(param, &param->zoom);
 }
 
 void	draw_right(t_param *param)
@@ -26,8 +28,10 @@ void	draw_right(t_param *param)
 	param->zoom.x1 = param->zoom.x1 * 1.1;
 	if (param->wich == 1)
 		mandel_iter(param, &param->zoom);
-	if (param->wich == 2)
+	else if (param->wich == 2)
 		julia_iter(param, &param->zoom);
+	else if (param->wich == 3)
+		burning_iter(param, &param->zoom);
 }
 
 void	draw_up(t_param *param)
@@ -35,8 +39,10 @@ void	draw_up(t_param *param)
 	param->zoom.y1 = param->zoom.y1 / 1.1;
 	if (param->wich == 1)
 		mandel_iter(param, &param->zoom);
-	if (param->wich == 2)
+	else if (param->wich == 2)
 		julia_iter(param, &param->zoom);
+	else if (param->wich == 3)
+		burning_iter(param, &param->zoom);
 }
 
 void	draw_down(t_param *param)
@@ -44,6 +50,8 @@ void	draw_down(t_param *param)
 	param->zoom.y1 = param->zoom.y1 * 1.1;
 	if (param->wich == 1)
 		mandel_iter(param, &param->zoom);
-	if (param->wich == 2)
+	else if (param->wich == 2)
 		julia_iter(param, &param->zoom);
+	else if (param->wich == 3)
+		burning_iter(param, &param->zoom);
 }

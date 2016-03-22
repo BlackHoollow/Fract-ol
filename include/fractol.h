@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:35:22 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 17:30:15 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 17:46:04 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,11 @@ void			iter_moins(t_param *param);
 
 void			zoom_in(t_param *param, int x, int y);
 void			zoom_out(t_param *param, int x, int y);
+
+/*
+**	burning.c
+*/
+
+void			burning_iter(t_param *param, t_zoom *zoom);
 
 #endif

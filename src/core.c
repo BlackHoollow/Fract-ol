@@ -6,7 +6,7 @@
 /*   By: nromptea <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 16:56:58 by nromptea          #+#    #+#             */
-/*   Updated: 2016/03/22 17:29:24 by nromptea         ###   ########.fr       */
+/*   Updated: 2016/03/22 17:46:51 by nromptea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	wich_one(char *argv, t_param *param)
 	param->color = 0;
 	param->zoom = zoom;
 	param->mouse = 0;
-	if (arg != 1 && arg != 2)
+	if (arg != 1 && arg != 2 && arg != 3)
 		ft_exit("Erreur");
 	if (arg == 1)
 	{
@@ -84,6 +84,11 @@ void	wich_one(char *argv, t_param *param)
 		param->itera.c_r = -0.8;
 		param->itera.c_i = 0.156;
 		julia_iter(param, &zoom);
+	}
+	else if (arg == 3)
+	{
+		param->wich = 3;
+		burning_iter(param, &zoom);
 	}
 }
 
