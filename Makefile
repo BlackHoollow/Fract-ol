@@ -6,7 +6,7 @@
 #    By: nromptea <mgras@student.42.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/07 18:34:51 by nromptea          #+#    #+#              #
-#    Updated: 2016/03/22 17:46:41 by nromptea         ###   ########.fr        #
+#    Updated: 2016/03/23 13:32:25 by nromptea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,9 +53,9 @@ clean :
 fclean : clean
 	@$(RM) -v $(NAME)
 
-gcp :
+gcp : fclean
 	git add -A
 	git commit -m "make git"
-	git push
+	git push origin master
 
 re: fclean all
